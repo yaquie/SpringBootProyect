@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.example.service.IPersonaService;
-import com.example.service.PersonaServiceImpl;
 
-@SpringBootApplication
+import com.example.service.IPersonaService;
+
+@SpringBootApplication(scanBasePackages={"com.example.demo","com.example.service", "com.example.repository"})
 public class SpringBootProjectApplication implements CommandLineRunner {
 
 	private static Logger LOG = LoggerFactory.getLogger(SpringBootProjectApplication.class);
 
-	// instancia de la capa service
+	//instanciando a la capa service
+	@Autowired
 	private IPersonaService service;
 
 	public static void main(String[] args) {
@@ -23,8 +24,8 @@ public class SpringBootProjectApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		service = new PersonaServiceImpl();
-		service.registrar("Jakie");
+//		service = new PersonaServiceImpl();
+		service.registrar("Luis Miguel");
 
 	}
 
