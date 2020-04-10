@@ -12,8 +12,10 @@ public class PersonaRepositoryImpl implements IPersonaRepository {
 	private static Logger LOG = LoggerFactory.getLogger(SpringBootProjectApplication.class);
 
 	@Override
-	public void registrar(String nombre) {
-		LOG.info("Se registro a : " + nombre);
+	public String registrar(String nombre) {
+		String mensaje;
+		mensaje="Bienvenido : " + nombre +" Tus datos fueron registrados correctamente";
+		return mensaje;
 	}
 
 }
